@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Atualiza o conteúdo do pop-up com uma nova avaliação
     function showReview(review) {
       popup.innerHTML = `
-        <img src="/assets/anonimo.png" alt="Foto de perfil" class="profile-photo">
+        <img src="/anonimo.png" alt="Foto de perfil" class="profile-photo">
         <div class="review-details">
           <p class="review-message">${review.message}</p>
           <p class="review-rating">${generateStars(review.rating)}</p>
