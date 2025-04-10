@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --primary: #ffffff;
+    --secondary: #00BFFF;
+    --light: #f8f9fa;
+    --dark: #000000;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.special-gothic-expanded-one-regular {
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos do header */
+header {
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  header h1 span {
+    color: var(--secondary);
+  }
+  
+  /* Estilos do menu */
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #00008B;
+  }
+  
+  /* Botão de menu (hamburger) */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--secondary);
+    cursor: pointer;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    /* Exibe o botão de menu e esconde o menu padrão */
+    .menu-toggle {
+      display: block;
+    }
+    
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px; /* Ajuste conforme a altura do header */
+      left: 0;
+      width: 100%;
+      background: var(--primary);
+      padding: 10px 0;
+    }
+    
+    nav ul li {
+      margin: 10px 0;
+      text-align: center;
+    }
+    
+    nav.active ul {
+      display: flex;
+    }
+  }
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('assets/bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #00008B;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.servicos {
+    padding: 100px 0;
+    background-color: var(--light);
+}
+
+.servicos h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--dark);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    perspective: 1000px;
+    height: 200px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.card-front {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+.card-back {
+    background: linear-gradient(135deg, #00BFFF, #00008B);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #00BFFF;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.portfolio {
+    padding: 80px 0;
+    background-color: var(--primary);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+.cta {
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #333; /* Cor de fundo do footer */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    margin-bottom: 10px;
+  }
+  
+  .developer-info {
+    margin-top: 20px;
+  }
+  
+  .developer-info a {
+    text-decoration: none;
+  }
+  
+  .developer-logo {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float i {
+    margin-top: 5px;
+}
+/* Container do pop-up */
+.popup-review {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 9999;
+  }
+  
+  .popup-review.show {
+    opacity: 1;
+  }
+  
+  /* Estilo da foto de perfil */
+  .profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  
+  /* Container dos detalhes da avaliação */
+  .review-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .review-message {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.3;
+    color: #333;
+  }
+  
+  .review-rating {
+    color: #FFD700; /* Cor dourada para as estrelas */
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .review-name {
+    font-weight: bold;
+    font-size: 12px;
+    color: #555;
+    margin: 0;
+  }
+  
+
+  /* Estilização geral do preloader */
+#preloader {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Container principal centralizado para o conteúdo de carregamento */
+  .loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  /* Texto animado */
+  .loading-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #333;
+    animation: pulse 1s infinite;
+  }
+  
+  /* Animação pulse para o texto "Carregando..." */
+  @keyframes pulse {
+    0%   { opacity: 0.3; transform: scale(1); }
+    50%  { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.3; transform: scale(1); }
+  }
+  
+  /* Rodapé do preloader com os créditos */
+  .preloader-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .preloader-footer p {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para a logo do desenvolvedor, garantindo responsividade */
+  .dev-logo {
+    max-width: 100px; /* Ajusta o tamanho máximo conforme desejado */
+    width: 100%;
+    height: auto;
+  }
+  /* Animação para o texto (caso queira aplicar em algum elemento adicional) */
+  @keyframes pulse {
+    0%   { opacity: 0.3; transform: scale(1); }
+    50%  { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.3; transform: scale(1); }
+  }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
